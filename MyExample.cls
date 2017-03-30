@@ -1,5 +1,6 @@
 /**
 * This class is used for an example to show hot to resolve merge conflicts
+* This class will be used as an example in the classroom on merge conflicts
 * We are forcing "breaking changes"
 */
 public class MyExample {
@@ -9,7 +10,13 @@ public class MyExample {
 
     private List<String> hobbies;
 
-    public MyExample(Integer age, String name) {
+    public MyExample(String name, Integer age, List<String> hobbies) {
+        this.age = age;
+        this.name = name;
+        this.hobbies = hobbies;
+    }
+
+    public MyExample(String name, Integer age) {
         this.age = age;
         this.name = name;
         this.hobbies = new List<String>();
@@ -17,6 +24,19 @@ public class MyExample {
 
     public String addHobby(String hobby) {
         this.hobbies.add(hobby);
+    }
+
+    public String giveUpOnHobby(String hobby) {
+        Integer removeIndex;
+        for(Integer i = 0; i < hobbies.size(); i ++) {
+            if(hobbies[i] == hobby) {
+                removeIndex = i;
+                break;
+            }
+        }
+        if(removeIndex != null) {
+            this.hobby.remove(removeIndex);
+        }
     }
 
     public String getName() {
